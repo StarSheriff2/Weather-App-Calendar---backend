@@ -128,10 +128,25 @@ RSpec.describe 'Reminders API', type: :request do
 
   # Test suite for DELETE /reminders/:id
   describe 'DELETE /reminders/:id' do
-    before { delete "/reminders/#{reminder_id}" }
+    context 'when reminder exists in db' do
+      before { delete "/reminders/#{reminder_id}" }
 
-    it 'returns status code 204' do
-      expect(response).to have_http_status(204)
+      it 'returns status code 204' do
+        expect(response).to have_http_status(204)
+      end
+    end
+
+    context 'when reminder doesn\'t exist in db' do
+      before { delete "/reminders/#{reminder_id}" }
+      before { delete "/reminders/#{reminder_id}" }
+
+      it 'returns a message' do
+        expect(json['message']).to eq("Couldn't find Reminder with 'id'=#{reminder_id}")
+      end
+
+      it 'returns status code 404' do
+        expect(response).to have_http_status(404)
+      end
     end
   end
 end
