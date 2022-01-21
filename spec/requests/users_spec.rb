@@ -10,7 +10,7 @@ RSpec.describe 'Users API', type: :request do
   end
   let(:invalid_attributes) do
     {
-      user: {name: '', email: '', password: ''}
+      user: { name: '', email: '', password: '' }
     }
   end
 
