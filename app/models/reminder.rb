@@ -4,4 +4,5 @@ class Reminder < ApplicationRecord
   validates :datetime, presence: true
   validates :city, presence: true, length: { maximum: 60 }
   validates :location_coordinates, presence: true, length: { maximum: 100 }
+  validates :created_by, presence: true
 end
