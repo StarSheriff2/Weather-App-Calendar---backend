@@ -34,7 +34,7 @@ class RemindersController < ApplicationController
 
   def reminder_params
     # whitelist params
-    params.require(:reminder).permit(:description, :datetime, :city, :location_coordinates)
+    params.require(:reminder).permit(:description, :datetime, :city, :location_coordinates, :created_by)
   end
 
   def set_reminder

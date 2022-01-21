@@ -52,6 +52,8 @@ RSpec.describe 'Reminders API', type: :request do
     time = Faker::Time.forward(days: 364)
     city = Faker::Address.city
     location_coordinates = "#{Faker::Address.latitude}, #{Faker::Address.longitude}"
+    created_by = Faker::Number.number(digits: 10)
+
     # valid payload
     let(:valid_attributes) do
       {
@@ -59,7 +61,8 @@ RSpec.describe 'Reminders API', type: :request do
           description: 'Go pick up business cards',
           datetime: time,
           city: city,
-          location_coordinates: location_coordinates
+          location_coordinates: location_coordinates,
+          created_by: created_by
         }
       }
     end
