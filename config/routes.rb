@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
-  post 'signup', to: 'users#create'
+  # namespace the controllers without affecting the URI
+  scope module: :v2, constraints: ApiVersion.new('v2') do
+    resources :reminders, only: :index
+  end
+
+  scope module: :v1, constraints: ApiVersion.new('v1', default: true) do
+    resources :reminders
+  end
 
   post 'auth/login', to: 'authentication#authenticate'
-
-  resources :reminders
+  post 'signup', to: 'users#create'
 end
