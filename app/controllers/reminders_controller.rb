@@ -3,13 +3,13 @@ class RemindersController < ApplicationController
 
   # GET /reminders
   def index
-    @reminders = Reminder.all
+    @reminders = current_user.reminders
     json_response(@reminders)
   end
 
   # POST /reminders
   def create
-    @reminder = Reminder.create!(reminder_params)
+    @reminder = current_user.reminders.create!(reminder_params)
     json_response(@reminder, :created)
   end
 

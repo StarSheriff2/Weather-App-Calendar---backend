@@ -8,4 +8,5 @@ RSpec.describe Reminder, type: :model do
   it { should validate_presence_of(:datetime) }
   it { should validate_presence_of(:city) }
   it { should validate_presence_of(:location_coordinates) }
+  it { should validate_presence_of(:created_by) }
 end
