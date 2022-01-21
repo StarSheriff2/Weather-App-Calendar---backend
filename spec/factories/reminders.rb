@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :reminder do
-    description { "MyString" }
-    datetime { "2022-01-20 22:18:01" }
-    city { "MyString" }
-    location_coordinates { "MyString" }
+    description { 'MyString' }
+    datetime { Faker::Time.forward(days: 364) }
+    city { Faker::Address.city }
+    location_coordinates { "#{Faker::Address.latitude}, #{Faker::Address.longitude}" }
   end
 end
