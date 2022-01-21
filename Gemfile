@@ -33,6 +33,9 @@ gem 'faker'
 gem 'rspec-rails'
 gem 'rswag'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt'
+
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
