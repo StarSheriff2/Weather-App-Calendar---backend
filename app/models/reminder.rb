@@ -1,7 +1,5 @@
 class Reminder < ApplicationRecord
   # validations
-  validates_presence_of :description, :datetime, :city, :location_coordinates
-
   validates :description, presence: true, length: { maximum: 30, too_long: 'Too long. Maximum is 1200 characters.' }
   validates :datetime, presence: true
   validates :city, presence: true, length: { maximum: 60 }
