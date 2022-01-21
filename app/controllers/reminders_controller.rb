@@ -3,13 +3,13 @@ class RemindersController < ApplicationController
 
   # GET /reminders
   def index
-    @reminders = Reminder.all
+    @reminders = current_user.reminders
     json_response(@reminders)
   end
 
   # POST /reminders
   def create
-    @reminder = Reminder.create!(reminder_params)
+    @reminder = current_user.reminders.create!(reminder_params)
     json_response(@reminder, :created)
   end
 
@@ -34,7 +34,7 @@ class RemindersController < ApplicationController
 
   def reminder_params
     # whitelist params
-    params.require(:reminder).permit(:description, :datetime, :city, :location_coordinates, :created_by)
+    params.require(:reminder).permit(:description, :datetime, :city, :location_coordinates)
   end
 
   def set_reminder
