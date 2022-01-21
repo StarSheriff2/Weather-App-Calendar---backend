@@ -4,7 +4,14 @@ RSpec.describe 'Users API', type: :request do
   let(:user) { build(:user) }
   let(:headers) { valid_headers.except('Authorization') }
   let(:valid_attributes) do
-    attributes_for(:user, password_confirmation: user.password)
+    {
+      user: attributes_for(:user, password_confirmation: user.password)
+    }
+  end
+  let(:invalid_attributes) do
+    {
+      user: {name: '', email: '', password: ''}
+    }
   end
 
   # User signup test suite
@@ -26,7 +33,7 @@ RSpec.describe 'Users API', type: :request do
     end
 
     context 'when invalid request' do
-      before { post '/signup', params: {}, headers: headers }
+      before { post '/signup', params: invalid_attributes.to_json, headers: headers }
 
       it 'does not create a new user' do
         expect(response).to have_http_status(422)

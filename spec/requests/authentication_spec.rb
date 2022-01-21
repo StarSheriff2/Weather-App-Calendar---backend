@@ -10,14 +10,18 @@ RSpec.describe 'Authentication', type: :request do
     # set test valid and invalid credentials
     let(:valid_credentials) do
       {
-        email: user.email,
-        password: user.password
+        user: {
+          email: user.email,
+          password: user.password
+        }
       }.to_json
     end
     let(:invalid_credentials) do
       {
-        email: Faker::Internet.email,
-        password: Faker::Internet.password
+        user: {
+          email: Faker::Internet.email,
+          password: Faker::Internet.password
+        }
       }.to_json
     end
 
