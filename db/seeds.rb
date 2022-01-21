@@ -1,3 +1,4 @@
+User.create(name: 'Test User', email: 'foo@bar.com', password: 'foobar44A33!')
 # seed 50 records
 50.times do
   reminder = Reminder.create(
