@@ -4,7 +4,7 @@ module V1
 
     # GET /reminders
     def index
-      @reminders = current_user.reminders
+      @reminders = current_user.reminders.chronologically_sorted
       json_response(@reminders)
     end
 
