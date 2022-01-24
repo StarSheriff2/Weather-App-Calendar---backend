@@ -5,4 +5,6 @@ class Reminder < ApplicationRecord
   validates :city, presence: true, length: { maximum: 60 }
   validates :location_coordinates, presence: true, length: { maximum: 100 }
   validates :created_by, presence: true
+
+  scope :chronologically_sorted, -> { order(datetime: :asc) }
 end
