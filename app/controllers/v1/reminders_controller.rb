@@ -4,7 +4,16 @@ module V1
 
     # GET /reminders
     def index
-      @reminders = current_user.reminders.chronologically_sorted
+      @reminders = current_user.reminders.chronologically_sorted.map do |r|
+        {
+          id: r.id,
+          description: r.description,
+          date: r.datetime.to_date,
+          time: r.datetime.strftime('%H:%M'),
+          city: r.city,
+          location_coordinates: r.location_coordinates
+        }
+      end
       json_response(@reminders)
     end
 
