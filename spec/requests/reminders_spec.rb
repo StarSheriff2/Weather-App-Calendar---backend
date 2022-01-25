@@ -84,7 +84,7 @@ RSpec.describe 'Reminders API', type: :request do
 
       it 'creates a reminder' do
         expect(response.body)
-          .to match(/created/)
+          .to match(/description/)
         expect(json['description']).to eq('Go pick up business cards')
       end
 
