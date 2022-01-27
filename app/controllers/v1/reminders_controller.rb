@@ -20,6 +20,14 @@ module V1
     # POST /reminders
     def create
       @reminder = current_user.reminders.create!(reminder_params)
+      @reminder = {
+        id: @reminder.id,
+        description: @reminder.description,
+        date: @reminder.datetime.to_date,
+        time: @reminder.datetime.strftime('%H:%M'),
+        city: @reminder.city,
+        location_coordinates: @reminder.location_coordinates
+      }
       json_response(@reminder, :created)
     end
 
