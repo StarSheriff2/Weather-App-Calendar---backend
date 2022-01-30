@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   # namespace the controllers without affecting the URI
-  scope module: :v2, constraints: ApiVersion.new('v2') do
+  scope module: :v2, :defaults => {:format => :json}, constraints: ApiVersion.new('v2') do
     resources :reminders, only: :index
   end
 
-  scope module: :v1, constraints: ApiVersion.new('v1', default: true) do
+  scope module: :v1, :defaults => {:format => :json}, constraints: ApiVersion.new('v1', default: true) do
     resources :reminders
   end
 
