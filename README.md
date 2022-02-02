@@ -3,7 +3,6 @@
 </div>
 
 <div align="center">
-    <img src="https://img.shields.io/badge/Microverse-blueviolet">
     <img src="https://img.shields.io/badge/Ruby_on_Rails-darkred">
     <img src="https://img.shields.io/badge/PostgreSQL-skyblue">
     <img src="https://img.shields.io/badge/Rspec-yellow">
