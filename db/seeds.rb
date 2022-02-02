@@ -1,7 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create(name: 'Test User', email: 'foo@bar.com', password: 'foobar44A33!')
+
+class Address
+  def initialize(address)
+    @city = address.city
+    @latitude = address.latitude
+    @longitude = address.longitude
+  end
+
+  attr_reader :city, :latitude, :longitude
+end
+
+generate_address = -> { address = Faker::Address }
+
+# seed 20 records
+20.times do
+  a = Address.new(generate_address.call)
+
+  reminder = Reminder.create(
+    description: Faker::Lorem.words(number: rand(2..3)).join(' '),
+    datetime: Faker::Time.forward(days: 364),
+    city: a.city,
+    location_coordinates: "#{a.latitude}, #{a.longitude}",
+    created_by: User.first.id
+  )
+end
