@@ -20,6 +20,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: postgres
+  password: root
+  host: db
+  port: 5432
 
 development:
   <<: *default
@@ -32,7 +36,7 @@ development:
   #username: Weather_App_Calendar_api
 
   # The password associated with the postgres role (username).
-  #password:
+  # password: secret
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
