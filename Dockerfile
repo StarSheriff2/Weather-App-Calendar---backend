@@ -3,8 +3,9 @@ FROM ruby:3.0.2
 RUN bundle config --global frozen 1
 WORKDIR /usr/src/app
 COPY Gemfile Gemfile.lock ./
+RUN gem install bundler
 RUN bundle install
-RUN bin/rails db:setup
 COPY . .
+RUN bundle exec rake db:setup
 CMD ["rails", "server"]
 EXPOSE 3001
