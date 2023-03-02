@@ -1,7 +1,7 @@
 # syntax=docker/dockerfile:1
 
 FROM ruby:3.0.2
-# RUN apt-get update -qq && apt-get install -y postgresql-client
+RUN apt-get update -qq && apt-get install -y postgresql-client
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 WORKDIR /app
