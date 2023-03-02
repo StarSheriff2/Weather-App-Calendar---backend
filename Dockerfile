@@ -9,3 +9,7 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install bundler
 RUN bundle install
 COPY . .
+# RUN chmod +x entrypoint.sh
+# RUN chmod 755 entrypoint.sh
+# RUN ["chmod", "+x", "/home/entrypoint.sh"]
+# ENTRYPOINT ["./entrypoint.sh"]
