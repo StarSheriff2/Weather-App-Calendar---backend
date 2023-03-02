@@ -1,21 +1,24 @@
 services:
   db:
+
     image: postgres:14
     restart: always
+    # env_file:
+    #   - .env
     ports:
       - 5432:5432
     volumes:
       - api-psql-data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-      POSTGRES_DB: Weather_App_Calendar_api
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_DB}
 
   app:
     build: .
     command: bash -c "bundle exec rake db:setup && bundle exec rails s -p 3001 -b '0.0.0.0'"
     ports:
-      - 3001:3001
+      - ${APP_PORT}:3001
     volumes:
       - ./:/app
     depends_on:
