@@ -3,6 +3,9 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  # To allow requests to weather-app-calendar-backend-development.up.railway.app, add the following to your environment configuration:
+  # config.hosts << "weather-app-calendar-backend-development.up.railway.app"
+  config.hosts << "weatherapp-api.onrender.com"
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
   # since you don't have to restart the web server when you make code changes.

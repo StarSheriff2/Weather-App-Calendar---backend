@@ -20,10 +20,11 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: db
   username: postgres
   password: secret
-  host: db
   port: 5432
+  pool: 5
 
 development:
   <<: *default
@@ -89,5 +90,5 @@ test:
 production:
   <<: *default
   database: Weather_App_Calendar_api_production
-  username: Weather_App_Calendar_api
-  password: <%= ENV['WEATHER_APP_CALENDAR_API_DATABASE_PASSWORD'] %>
+  # username: Weather_App_Calendar_api
+  # password: <%= ENV['WEATHER_APP_CALENDAR_API_DATABASE_PASSWORD'] %>
