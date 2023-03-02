@@ -1,6 +1,6 @@
 services:
   db:
-
+    platform: linux/amd64
     image: postgres:14
     restart: always
     ports:
@@ -8,13 +8,19 @@ services:
     volumes:
       - api-psql-data:/var/lib/postgresql/data
     environment:
+      POSTGRES_DB: ${DATABASE_DB}
       POSTGRES_USER: ${DATABASE_USER}
       POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
-      POSTGRES_DB: ${DATABASE_DB}
 
   app:
+    platform: linux/amd64
     build: .
     command: bash -c "bundle exec rake db:setup && bundle exec rails s -p 3001 -b '0.0.0.0'"
+    restart: "no"
+    environment:
+            - DATABASE_HOSTNAME=db
+            - DATABASE_USER=postgres
+            - DATABASE_PASSWORD=secret
     ports:
       - ${APP_PORT}:3001
     volumes:
