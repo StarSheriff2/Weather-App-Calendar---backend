@@ -2,6 +2,7 @@ services:
   db:
     image: postgres:14
     hostname: db
+    container_name: db
     restart: always
     ports:
       - 5432:5432
