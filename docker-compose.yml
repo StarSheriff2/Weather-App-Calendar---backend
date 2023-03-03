@@ -21,7 +21,7 @@ services:
             - DATABASE_HOSTNAME=postgres
             - DATABASE_USER=postgres
             - DATABASE_PASSWORD=secret
-            - RAILS_ENV: production
+            - RAILS_ENV=production
     ports:
       - 3001:3001
     volumes:
