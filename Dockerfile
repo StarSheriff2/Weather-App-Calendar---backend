@@ -15,6 +15,7 @@ COPY entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/entrypoint.sh
 COPY . .
 RUN bash -c bundle exec rake DATABASE_URL=postgresql:does_not_exist
+RUN bash -c bundle exec rake SECRET_KEY_BASE=d20ad351b961025e89204f525ae5adb9
 ENTRYPOINT ["entrypoint.sh"]
 EXPOSE 3001
 CMD ["rails", "server", "-b", "0.0.0.0"]
