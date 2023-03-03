@@ -1,8 +1,8 @@
 services:
-  db:
+  postgres:
     image: postgres:14
-    hostname: 0.0.0.0
-    container_name: db
+    # hostname: 0.0.0.0
+    container_name: postgres
     restart: always
     # ports:
     #   - 5432:5432
@@ -12,6 +12,7 @@ services:
       POSTGRES_DB: Weather_App_Calendar_api
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
+      POSTGRES_HOST: localhost
       # POSTGRES_HOST_AUTH_METHOD: trust
 
   app:
@@ -19,11 +20,10 @@ services:
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rake db:setup && bundle exec rails s -p 3001 -b '0.0.0.0'"
     restart: always
     environment:
-            - DATABASE_HOSTNAME=0.0.0.0
             - DATABASE_USER=postgres
             - DATABASE_PASSWORD=secret
             - RAILS_ENV=production
-            # - DATABASE_URL=postgres://postgres:secret@db:5432/Weather_App_Calendar_api?pool=5
+            - DATABASE_URL=postgres://postgres:secret@postgres:5432/Weather_App_Calendar_api?pool=5
             - SECRET_KEY_BASE=d4df6d90bb36b2b3c1f0e19592fa183c22846512b87cdb148f41fe67eb6901c48e467dde1038da7820bed13f45a3030feef92df121a772954de2bd36596b34bf
             - RAILS_MASTER_KEY=d20ad351b961025e89204f525ae5adb9
     ports:
