@@ -22,6 +22,8 @@ services:
             - DATABASE_USER=postgres
             - DATABASE_PASSWORD=secret
             - RAILS_ENV=production
+            - DATABASE_URL=postgres://postgres:secret@db:5432/Weather_App_Calendar_api?pool=5
+            - SECRET_KEY_BASE=d20ad351b961025e89204f525ae5adb9
     ports:
       - 3001:3001
     volumes:
