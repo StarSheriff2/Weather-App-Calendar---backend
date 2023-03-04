@@ -39,5 +39,7 @@ services:
 
 networks:
   backend:
+    name: my-pre-exiting-network
+    external: true
 volumes:
   api-psql-data:
