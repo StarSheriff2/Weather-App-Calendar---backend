@@ -13,6 +13,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
       # POSTGRES_HOST_AUTH_METHOD: trust
+    networks:
+      - backend
 
   app:
     build: .
@@ -32,6 +34,10 @@ services:
       - ./:/app
     depends_on:
       - postgres
+    networks:
+      - backend
 
+networks:
+  backend:
 volumes:
   api-psql-data:
