@@ -19,5 +19,6 @@ COPY . .
 # RUN bash -c bundle exec rake SECRET_KEY_BASE=d4df6d90bb36b2b3c1f0e19592fa183c22846512b87cdb148f41fe67eb6901c48e467dde1038da7820bed13f45a3030feef92df121a772954de2bd36596b34bf
 # RUN bash -c bundle exec rake RAILS_MASTER_KEY=d20ad351b961025e89204f525ae5adb9
 ENTRYPOINT ["entrypoint.sh"]
+RUN bash -c bundle exec rake db:setup
 EXPOSE 3001
 CMD ["rails", "server", "-b", "0.0.0.0"]
