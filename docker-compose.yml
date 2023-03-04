@@ -1,7 +1,7 @@
+version: '3.9'
 services:
   postgres:
     image: postgres:14
-    # hostname: 0.0.0.0
     container_name: postgres
     restart: always
     # ports:
@@ -12,7 +12,6 @@ services:
       POSTGRES_DB: Weather_App_Calendar_api
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: secret
-      POSTGRES_HOST: localhost
       # POSTGRES_HOST_AUTH_METHOD: trust
 
   app:
@@ -22,16 +21,17 @@ services:
     environment:
             - DATABASE_USER=postgres
             - DATABASE_PASSWORD=secret
-            - RAILS_ENV=production
-            - DATABASE_URL=postgres://postgres:secret@postgres:5432/Weather_App_Calendar_api?pool=5
-            - SECRET_KEY_BASE=d4df6d90bb36b2b3c1f0e19592fa183c22846512b87cdb148f41fe67eb6901c48e467dde1038da7820bed13f45a3030feef92df121a772954de2bd36596b34bf
-            - RAILS_MASTER_KEY=d20ad351b961025e89204f525ae5adb9
+            - RAILS_ENV=development
+            - DATABASE_HOSTNAME=postgres
+            # - DATABASE_URL=postgres://postgres:secret@postgres:5432/Weather_App_Calendar_api?pool=5
+            # - SECRET_KEY_BASE=d4df6d90bb36b2b3c1f0e19592fa183c22846512b87cdb148f41fe67eb6901c48e467dde1038da7820bed13f45a3030feef92df121a772954de2bd36596b34bf
+            # - RAILS_MASTER_KEY=d20ad351b961025e89204f525ae5adb9
     ports:
       - 3001:3001
     volumes:
       - ./:/app
     depends_on:
-      - db
+      - postgres
 
 volumes:
   api-psql-data:
