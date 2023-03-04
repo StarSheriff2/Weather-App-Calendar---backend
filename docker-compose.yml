@@ -34,12 +34,13 @@ services:
       - ./:/app
     depends_on:
       - postgres
+    links:
+      - postgres:postgres
     networks:
       - backend
 
 networks:
   backend:
-    name: my-pre-exiting-network
-    external: true
+    driver: bridge
 volumes:
   api-psql-data:
