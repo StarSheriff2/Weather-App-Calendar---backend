@@ -2,7 +2,7 @@
 
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y postgresql-client
-# ENV RAILS_ENV production
+ENV RAILS_ENV production
 ENV RAILS_LOG_TO_STDOUT true
 # ENV DATABASE_HOSTNAME postgres
 # throw errors if Gemfile has been modified since Gemfile.lock
