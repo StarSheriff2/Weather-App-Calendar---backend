@@ -1,10 +1,9 @@
 # exit on error
 set -o errexit
 
-bundle exec rake assets:precompile
-bundle exec rake db:migrate:reset db:seed
-
-# bundle exec rake db:setup
+bundle exec rails assets:precompile
+bundle exec rails db:prepare
+bundle exec rails db:seed
 
 # start the server
 exec "$@"
