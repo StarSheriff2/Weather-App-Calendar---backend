@@ -4,7 +4,7 @@ FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y postgresql-client
 ENV RAILS_ENV production
 ENV RAILS_LOG_TO_STDOUT true
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 ENV DATABASE_URL postgres://arturoalvarezv:LeHDI3mAN2MCVE7IHSu2OTSW3XcXkSes@dpg-cg2dnse4dada1e10sg90-a/weather_app_calendar_db
 # ENV DATABASE_HOSTNAME postgres
 # throw errors if Gemfile has been modified since Gemfile.lock
