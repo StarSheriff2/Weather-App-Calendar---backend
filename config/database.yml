@@ -27,7 +27,7 @@ default: &default
 
 development:
   <<: *default
-  database: Weather_App_Calendar_api_development
+  database: weather_app_calendar_db_development
   # username: <%= ENV['DATABASE_USER'] %>
   # password: <%= ENV['DATABASE_PASSWORD'] %>
   # host: <%= ENV['DATABASE_HOSTNAME'] %>
@@ -64,7 +64,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: Weather_App_Calendar_api_test
+  database: weather_app_calendar_db_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: Weather_App_Calendar_api_production
+  database: weather_app_calendar_db_production
   # username: Weather_App_Calendar_api
   # password: <%= ENV['WEATHER_APP_CALENDAR_API_DATABASE_PASSWORD'] %>
