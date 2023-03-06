@@ -4,7 +4,7 @@ set -o errexit
 
 set -e
 
-bundle exec rails assets:precompile
+bundle exec rake assets:precompile
 bundle exec rails db:prepare
 bundle exec rails db:seed
 
