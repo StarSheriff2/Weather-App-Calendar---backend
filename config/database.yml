@@ -88,6 +88,6 @@ test:
 #
 production:
   <<: *default
-  database: weather_app_calendar_db_production
+  database: weather_app_calendar_db
   # username: Weather_App_Calendar_api
   # password: <%= ENV['WEATHER_APP_CALENDAR_API_DATABASE_PASSWORD'] %>
