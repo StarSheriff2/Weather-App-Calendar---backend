@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: ./production.Dockerfile
+      dockerfile: production.Dockerfile
     context:
     restart: always
     ports:
