@@ -12,8 +12,8 @@ RUN gem install bundler
 RUN bundle config set --local without 'development test'
 RUN bundle install
 COPY . .
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
+COPY production.entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/production.entrypoint.sh
+ENTRYPOINT ["production.entrypoint.sh"]
 EXPOSE 3001
 CMD ["rails", "server", "-b", "0.0.0.0"]
