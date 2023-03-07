@@ -15,5 +15,7 @@ COPY . .
 COPY production.entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/production.entrypoint.sh
 ENTRYPOINT ["production.entrypoint.sh"]
+HEALTHCHECK --interval=30s --timeout=5s --start-period=5s --retries=3 \
+  CMD curl --fail http://localhost:3001/healthcheck || exit 1
 EXPOSE 3001
 CMD ["rails", "server", "-b", "0.0.0.0"]
