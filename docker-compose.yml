@@ -2,7 +2,7 @@ version: '3.9'
 services:
   app:
     build:
-      context: backend
+      context: .
       dockerfile: ./production.Dockerfile
     context:
     restart: always
