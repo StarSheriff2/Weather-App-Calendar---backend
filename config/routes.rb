@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
-  get '/health_check', to: proc { [200, {}, ['success']] }
+  Healthcheck.routes(self)
 end
