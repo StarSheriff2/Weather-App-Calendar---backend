@@ -15,7 +15,8 @@ RUN gem update --system && gem install bundler
 # RUN bundle install
 RUN bundle config jobs 4 \
   && bundle config set --local without 'development test' \
-  && bundle install
+  && bundle install \
+  && bundle exec rails db:prepare
 COPY . .
 COPY production.entrypoint.sh /usr/bin/
 RUN chmod +x /usr/bin/production.entrypoint.sh
