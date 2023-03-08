@@ -8,7 +8,7 @@ ENV RAILS_LOG_TO_STDOUT true
 RUN bundle config --global frozen 1
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
-RUN gem install bundler
+RUN gem update --system && gem install bundler
 RUN bundle config set --local without 'development test'
 RUN bundle install
 COPY . .
