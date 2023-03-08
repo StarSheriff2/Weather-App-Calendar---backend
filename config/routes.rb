@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
-  Healthcheck.routes(self)
+  get  '/healthcheck', to: 'healthcheck/healthchecks#check'
 end
