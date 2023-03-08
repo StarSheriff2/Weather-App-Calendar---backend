@@ -15,6 +15,9 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.server_port = ENV['PORT'].to_i
+  config.additional_server_ports += [10000]
+
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
 
