@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :reminders
   end
 
-  get  '/healthcheck', to: 'healthcheck#check'
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
+  get  '/healthcheck', to: 'healthcheck#check'
 end
