@@ -7,8 +7,7 @@ RUN apt-get update -qq && apt-get install -y postgresql-client
 #   RAILS_ENV=production
 ENV PORT=3001 \
   RAILS_ENV=production \
-  RAILS_LOG_TO_STDOUT=true \
-  RAILS_SERVE_STATIC_FILES=true
+  RAILS_LOG_TO_STDOUT=true
 # throw errors if Gemfile has been modified since Gemfile.lock
 RUN bundle config --global frozen 1
 WORKDIR /app
