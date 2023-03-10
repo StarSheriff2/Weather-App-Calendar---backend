@@ -4,7 +4,7 @@
 
 set -e
 
-# bundle exec rails db:prepare
+bundle exec rails db:prepare
 
 if [ -f tmp/pids/server.pid ]; then
     rm tmp/pids/server.pid
