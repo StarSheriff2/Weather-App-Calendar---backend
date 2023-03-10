@@ -6,10 +6,9 @@ Rails.application.routes.draw do
 
   scope module: :v1, :defaults => {:format => :json}, constraints: ApiVersion.new('v1', default: true) do
     resources :reminders
-
-    get  '/healthcheck', to: 'healthcheck#check'
   end
 
+  get  '/healthcheck', to: 'healthcheck#check'
   post 'auth/login', to: 'authentication#authenticate'
   post 'signup', to: 'users#create'
 end
