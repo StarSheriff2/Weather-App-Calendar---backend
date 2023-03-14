@@ -16,7 +16,7 @@
 
 <br>
 
-<p align="center">This RESTFUL API works as the backend for a React web app. I host the API in Render through a <i>dockerized Ruby on Rails</i> app. Authentication is handled with a JWT Token stored in the localStorage of the frontend.</p>
+<p align="center">This RESTFUL API works as the backend for a React web app. I host the API on <i>Render.com</i> through a <i><strong>dockerized</strong> Ruby on Rails</i> app. Authentication is handled with a <strong>JWT Token</strong> stored in the localStorage of the frontend.</p>
 
 <br>
 
