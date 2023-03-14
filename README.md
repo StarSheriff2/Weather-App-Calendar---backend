@@ -62,7 +62,8 @@ Deployed to [Render.com](https://weatherapp-api.onrender.com)
 - Faker gem
 - Factory bot
 - JWT
-- Docker
+- Docker 20.10.22
+- Docker compose v2.15.1
 
 ## Getting Started
 
