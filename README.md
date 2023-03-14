@@ -77,7 +77,7 @@ To get a local copy up and running, follow these simple example steps.
 ```
   <br>
 
-  *Now go to the ***"Docker Deploy or the Local Deployt"*** section, depending on how you wish to deploy the API in your system.*
+  *Now go to either the ***"Docker Deploy"*** or the ***"Local Deployt"*** section, depending on how you wish to deploy the API in your system.*
 
   <br>
 
