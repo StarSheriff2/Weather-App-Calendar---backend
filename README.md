@@ -52,7 +52,7 @@ Weather App Calendar API is the API handling the core requests of the Weather Ca
 
 ![Render](https://img.shields.io/badge/render-passing-brightgreen.svg?style=flat)
 
-Deployed to Render.com
+Deployed to [Render.com](https://weatherapp-api.onrender.com)
 
 ### Built With
 - Ruby 3.0.2p107 (2021-07-07 revision 0db68f0233) [arm64-darwin20]
