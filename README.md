@@ -75,7 +75,11 @@ To get a local copy up and running, follow these simple example steps.
 ```
   https://github.com/StarSheriff2/Weather-App-Calendar---backend.git
 ```
-<br>Now go to the ***"Install Dependencies"*** section.
+  <br>
+
+  *Now go to the ***"Docker Deploy or the Local Deployt"*** section, depending on how you wish to deploy the API in your system.*
+
+  <br>
 
 3. Download the program files by clicking on the green button that says “**Code**” on the upper right side of the project frame.
 4. You will see a dropdown menu. Click on “**Download ZIP**.”
