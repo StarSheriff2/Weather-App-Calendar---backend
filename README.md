@@ -115,21 +115,32 @@ This command will install all the necessary gems in your system.
 
 #### Database Setup
 
+- Create an .env file copy and paste this into it:
+  ```bash
+    DATABASE_HOSTNAME=postgres
+  ```
 - In your terminal, type <code>bin/rails db:setup</code> to create your local databases, load the schema, and initialize with the seed data.
 
 You are all set now!
+
+#### Start Server
+
+In your terminal, run
+
+```bash
+bin/rails server
+```
+while inside the root directory of the repository files
 ## Usage
 
-1. In your terminal, run <code>bin/rails server</code> while inside the root directory of the repository files
-2. The app allows API calls using curl or your favorite API client, such as Postman, HTTPPie or VS Code's Thunder Client. Here's a link to [HTTPIE](https://httpie.io).
-3. Check status of the api by calling [http://localhost:3001/healthcheck](http://localhost:3001/healthcheck)
+1. The app allows API calls using curl or your favorite API client, such as Postman, HTTPPie or VS Code's Thunder Client. Here's a link to [HTTPIE](https://httpie.io).
+2. Check status of the api by calling this endpoint ***/healthcheck***
 
 **Note:<br>_These command will not stop on its own. To exit, hit "ctrl + c"_**
 
 ## Development
 ### Testing
 - Unit / Model tests
-- ***Integration tests (coming soon)***
 - API request tests
 
 To run all tests, type this into command line:
