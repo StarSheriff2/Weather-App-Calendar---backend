@@ -48,6 +48,7 @@
 - [Usage](#usage)
 - [Development](#development)
   - [Testing](#testing)
+    - [Coverage report](#coverage-report)
   - [Linters](#linters)
 - [Authors](#authors)
 - [🤝 Contributing](#-contributing)
@@ -57,7 +58,7 @@
 
 
 ## About
-Weather App Calendar API is the API handling the core requests of the Weather Calendar App. The frontend is a ***fully responsive*** react web app deployed [here](https://weather-app-calendar.netlify.app/). The [repo for the front-end is here](https://github.com/StarSheriff2/Weather-App-Calendar---frontend). I built request tests for all endpoints. I also created tests for all models. I use JWT token to handle user authentication and authorization.
+Weather App Calendar API is the API handling the core requests of the Weather Calendar App. The frontend is a ***fully responsive*** react web app deployed [here](https://weather-app-calendar.netlify.app/). The [repo for the front-end is here](https://github.com/StarSheriff2/Weather-App-Calendar---frontend). I built request tests for all endpoints, achieving a 97% test coverage. I also created tests for all models. I use JWT token to handle user authentication and authorization.
 
 ### File Structure
 <div align="left"><img width="30%" alt="app screenshot mobile" src="./.github/images/file_structure_snap1.png">
@@ -189,13 +190,16 @@ You are all set now!
 
 To run all tests, type this into command line:
 ```
- bundle exec rspec
+bundle exec rspec
 ```
+
+#### Coverage report
+  ![test Coverage](.github/images/test_coverage_screenshot.png)
 
 ### Linters
 To run ***Rubocop***, go to the root directory of your repository and copy/paste the following command into your terminal:
 ```
- rubocop .
+rubocop .
 ```
 
 ## Authors

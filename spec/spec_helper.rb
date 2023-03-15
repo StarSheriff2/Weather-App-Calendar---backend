@@ -16,6 +16,23 @@
 
 require 'simplecov'
 
+SimpleCov.start do
+  add_filter '/spec/'
+  add_filter '/test/'
+  add_filter '/config/'
+  add_filter '/vendor/'
+  add_filter '/spec/rails_helper.rb'
+  add_filter '/app/helpers/'
+  add_filter '/app/mailers/'
+
+  add_group 'Controllers', 'app/controllers'
+  add_group 'Models', 'app/models'
+  add_group 'Auth', 'app/auth'
+end
+
+# Output the report to public folder
+SimpleCov.coverage_dir 'public/coverage'
+
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest
@@ -97,17 +114,3 @@ RSpec.configure do |config|
   #   # as the one that triggered the failure.
   #   Kernel.srand config.seed
 end
-
-SimpleCov.start do
-  add_filter '/test/'
-  add_filter '/config/'
-  add_filter '/vendor/'
-  add_filter '/spec/rails_helper.rb'
-
-  add_group 'Controllers', 'app/controllers'
-  add_group 'Models', 'app/models'
-  add_group 'Helpers', 'app/helpers'
-  add_group 'Mailers', 'app/mailers'
-end
-
-SimpleCov.coverage_dir 'public/coverage'
