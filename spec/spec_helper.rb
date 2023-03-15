@@ -24,6 +24,7 @@ SimpleCov.start do
   add_filter '/spec/rails_helper.rb'
   add_filter '/app/helpers/'
   add_filter '/app/mailers/'
+  add_filter '/app/controllers/v2/'
 
   add_group 'Controllers', 'app/controllers'
   add_group 'Models', 'app/models'
