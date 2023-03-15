@@ -28,6 +28,34 @@
 
 <br>
 
+<!-- omit from toc -->
+## Table of Contents
+- [About](#about)
+  - [File Structure](#file-structure)
+  - [Features](#features)
+  - [Front-end React app](#front-end-react-app)
+  - [Live Demo](#live-demo)
+  - [Built With](#built-with)
+- [Setup and installation](#setup-and-installation)
+    - [Get files](#get-files)
+  - [Docker Deploy](#docker-deploy)
+    - [Prerequisites](#prerequisites)
+    - [Run](#run)
+  - [Local deploy](#local-deploy)
+    - [Prerequisites](#prerequisites-1)
+    - [Install Dependencies](#install-dependencies)
+    - [Database Setup](#database-setup)
+- [Usage](#usage)
+- [Development](#development)
+  - [Testing](#testing)
+  - [Linters](#linters)
+- [Authors](#authors)
+- [🤝 Contributing](#-contributing)
+- [🤝 Acknowledgements](#-acknowledgements)
+- [Show your support](#show-your-support)
+- [📝 License](#-license)
+
+
 ## About
 Weather App Calendar API is the API handling the core requests of the Weather Calendar App. The frontend is a ***fully responsive*** react web app deployed [here](https://weather-app-calendar.netlify.app/). The [repo for the front-end is here](https://github.com/StarSheriff2/Weather-App-Calendar---frontend). I built request tests for all endpoints. I also created tests for all models. I use JWT token to handle user authentication and authorization.
 
@@ -37,7 +65,7 @@ Weather App Calendar API is the API handling the core requests of the Weather Ca
 <div align="left"><img width="30%" alt="app screenshot mobile" src="./.github/images/file_structure_snap2.png">
 </div>
 
-### Features:
+### Features
 - authenticate user
 - create new user
 - create new session
@@ -65,7 +93,7 @@ Deployed to [Render.com](https://weatherapp-api.onrender.com)
 - Docker 20.10.22
 - Docker compose v2.15.1
 
-## Getting Started
+## Setup and installation
 
 To get a local copy up and running, follow these simple example steps.
 
@@ -117,26 +145,42 @@ This command will install all the necessary gems in your system.
 
 - Create an .env file copy and paste this into it:
   ```bash
-    DATABASE_HOSTNAME=postgres
+  DATABASE_HOSTNAME=postgres
   ```
-- In your terminal, type <code>bin/rails db:setup</code> to create your local databases, load the schema, and initialize with the seed data.
+
+- Run
+  ```bash
+  bin/rails db:setup
+  ```
+  This will create your local databases, load the schema, and initialize with the seed data.
+
+  **Note:** If you get an error after running this command, it might be because you don't have a database called ***"postgres"***. This happens because when you create a new Rails application, Rails uses this "postgres" database to create and manage the databases for your application. You can easily create one by running this command:
+  ```bash
+  createdb postgres
+  ```
+
+  If Rails still complains about not finding the "postgres" role, you can create one with super-user priviledges:
+  ```bash
+  createuser -s postgres
+  ```
+
+  Now try running the db:setup command again!
 
 You are all set now!
 
-#### Start Server
-
-In your terminal, run
-
-```bash
-bin/rails server
-```
-while inside the root directory of the repository files
 ## Usage
+1. In your terminal, run
 
-1. The app allows API calls using curl or your favorite API client, such as Postman, HTTPPie or VS Code's Thunder Client. Here's a link to [HTTPIE](https://httpie.io).
-2. Check status of the api by calling this endpoint ***/healthcheck***
+    ```bash
+    bin/rails server
+    ```
+    while inside the root directory of the repository files
 
-**Note:<br>_These command will not stop on its own. To exit, hit "ctrl + c"_**
+    **Note:** _This command will not stop on its own. To exit, hit "ctrl + c"_
+
+2. The app allows API calls using curl or your favorite API client, such as Postman, HTTPPie or VS Code's Thunder Client. Here's a link to [HTTPIE](https://httpie.io).
+3. Check status of the api by calling this endpoint ***/healthcheck***
+
 
 ## Development
 ### Testing
