@@ -2,9 +2,6 @@
 
 FROM ruby:3.0.2
 RUN apt-get update -qq && apt-get install -y postgresql-client
-# ENV BUNDLE_JOBS=4 \
-#   BUNDLE_RETRY=3 \
-#   RAILS_ENV=production
 ENV PORT=3001 \
   RAILS_ENV=production \
   RAILS_LOG_TO_STDOUT=true
@@ -12,8 +9,9 @@ ENV PORT=3001 \
 RUN bundle config --global frozen 1
 WORKDIR /app
 COPY Gemfile Gemfile.lock ./
-RUN gem update --system \
-  && gem install bundler
+#RUN gem update --system \
+#  && gem install bundler
+RUN gem install bundler
 RUN bundle config set --local without 'development test'
 RUN bundle install
 COPY . .
